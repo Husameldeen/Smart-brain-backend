@@ -8,16 +8,20 @@ import handleSignin from './controllers/signin.js';
 import handleProfileGet from './controllers/profile.js';
 import handleImage from './controllers/image.js';
 import handleApi from './controllers/api.js';
+import { createClient } from '@supabase/supabase-js'
 
-const db = knex({
-  client: 'pg',
-  connection: {
-    host: '127.0.0.1',
-    user: 'postgres',
-    password: '0995644304',
-    database: 'smart-brain'
-  },
-});
+// Create a single supabase client for interacting with your database
+const db = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3am5qdndyZXRmdm5qdWlxc2thIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MDk0NTMsImV4cCI6MjA3ODE4NTQ1M30.Jfe71yHobeakeQuMJVHEYiHkYJPF4db-RyevJD8Lumk')
+
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host: '127.0.0.1',
+//     user: 'postgres',
+//     password: '0995644304',
+//     database: 'smart-brain'
+//   },
+// });
 
 const app = express();
 app.use(bodyParser.json());
