@@ -11,14 +11,14 @@ import handleApi from './controllers/api.js';
 import { createClient } from '@supabase/supabase-js';
 import postgres from 'postgres';
 
-// Create a single supabase client for interacting with your database
-//const db = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3am5qdndyZXRmdm5qdWlxc2thIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MDk0NTMsImV4cCI6MjA3ODE4NTQ1M30.Jfe71yHobeakeQuMJVHEYiHkYJPF4db-RyevJD8Lumk')
+//Create a single supabase client for interacting with your database
+const db = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3am5qdndyZXRmdm5qdWlxc2thIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MDk0NTMsImV4cCI6MjA3ODE4NTQ1M30.Jfe71yHobeakeQuMJVHEYiHkYJPF4db-RyevJD8Lumk')
 
 
 // const connectionString = 'https://vwjnjvwretfvnjuiqska.supabase.co'
 // const db = postgres(connectionString)
 
-const db = knex(postgres('https://vwjnjvwretfvnjuiqska.supabase.co'));
+//const db = knex(postgres('https://vwjnjvwretfvnjuiqska.supabase.co'));
 
 const app = express();
 app.use(bodyParser.json());
