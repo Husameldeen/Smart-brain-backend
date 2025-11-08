@@ -16,7 +16,7 @@ import postgres from 'postgres';
 
 
 const connectionString = 'https://vwjnjvwretfvnjuiqska.supabase.co'
-const sql = postgres(connectionString)
+const db = postgres(connectionString)
 
 // const db = knex({
 //   client: 'pg',
