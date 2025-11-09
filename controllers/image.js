@@ -12,11 +12,34 @@ const handleImage = (req, res, db) => {
     // })
     // .catch(err => res.status(400).json('unable to get entries'))
 
-    const { data, error } = db
-    .from('users')
-    .select('*')
-    .eq('id', id)
-    res.json(data)
+    // incrementUserPoints.js
+
+    function incrementUserPoints(id, incrementBy = 1) {
+    // Step 1: Fetch current value
+    const { data: user, error: fetchError } = db
+        .from('users')
+        .select('entries')
+        .eq('id', id)
+        .single();
+
+    if (fetchError || !user) {
+        throw new Error(fetchError?.message || 'User not found');
+    }
+
+    const newPoints = user.points + incrementBy;
+
+    // Step 2: Update value
+    const { data: updatedUser, error: updateError } = db
+        .from('users')
+        .update({ entries: newPoints })
+        .eq('id', id)
+        .select();
+
+    if (updateError) throw new Error(updateError.message);
+
+    return updatedUser[0];
+    }
+
 }
 
 export default handleImage;
