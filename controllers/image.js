@@ -39,6 +39,7 @@ const handleImage = (req, res, db) => {
 
     return updatedUser[0];
     }
+    res.json(updatedUser[0])
 
 }
 
