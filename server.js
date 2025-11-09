@@ -12,7 +12,7 @@ import { createClient } from '@supabase/supabase-js';
 import postgres from 'postgres';
 
 //Create a single supabase client for interacting with your database
-const supabase = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3am5qdndyZXRmdm5qdWlxc2thIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MDk0NTMsImV4cCI6MjA3ODE4NTQ1M30.Jfe71yHobeakeQuMJVHEYiHkYJPF4db-RyevJD8Lumk')
+const db = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3am5qdndyZXRmdm5qdWlxc2thIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MDk0NTMsImV4cCI6MjA3ODE4NTQ1M30.Jfe71yHobeakeQuMJVHEYiHkYJPF4db-RyevJD8Lumk')
 
 
 // const connectionString = 'https://vwjnjvwretfvnjuiqska.supabase.co'
@@ -20,14 +20,14 @@ const supabase = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhb
 
 //const db = knex(postgres(supabase));
 
-const db = knex({ 
-  // connect to your own database here:
-  client: 'pg',
-  connection: {
-    host : 'https://vwjnjvwretfvnjuiqska.supabase.co',
-    database : 'smart-brain'
-  }
-});
+// const db = knex({ 
+//   connect to your own database here:
+//   client: 'pg',
+//   connection: {
+//     host : 'https://vwjnjvwretfvnjuiqska.supabase.co',
+//     database : 'smart-brain'
+//   }
+// });
 
 const app = express();
 app.use(bodyParser.json());
