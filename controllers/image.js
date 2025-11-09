@@ -1,6 +1,7 @@
 
 const handleImage = (req, res, db) => {
     const { id } = req.body;
+    res.json(id)
     //console.log('id = ', id)
     // db('users').where('id', '=', id)
     // .increment('entries', 1)
@@ -13,7 +14,8 @@ const handleImage = (req, res, db) => {
 
     const { data, error } = db
     .from('users')
-    .select('*')
+    .select()
+    .eq('id', id)
     res.json(data)
 }
 
