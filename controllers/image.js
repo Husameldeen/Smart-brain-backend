@@ -14,7 +14,7 @@ const handleImage = (req, res, db) => {
 
     const { data, error } = db
     .from('users')
-    .select()
+    .select('*')
     .eq('id', id)
     res.json(data)
 }
