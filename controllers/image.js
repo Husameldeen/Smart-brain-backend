@@ -17,13 +17,9 @@ const handleImage = async (req, res, db) => {
     .eq('id', id)
     .single();
 
-    if (fetchError || !user) {
-        throw new Error(fetchError?.message || 'User not found');
-    }
-
     const newPoints = user.entries + 1;
 
-    res.json(newPoints)
+    res.send(newPoints)
 
     //console.log('id = ', id)
     // db('users').where('id', '=', id)
