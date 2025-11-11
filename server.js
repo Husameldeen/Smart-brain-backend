@@ -27,9 +27,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const { data, error } = await db
-  .from('users')
-  .select('*')
+// const { data, error } = await db
+//   .from('users')
+//   .select('*')
 
 app.get('/', (req, res) => {res.send(data)});
 
