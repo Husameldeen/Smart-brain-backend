@@ -9,7 +9,7 @@ import handleImage from './controllers/image.js';
 import handleApi from './controllers/api.js';
 import { createClient } from '@supabase/supabase-js';
 
-const db = createClient('https://vwjnjvwretfvnjuiqska.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3am5qdndyZXRmdm5qdWlxc2thIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MDk0NTMsImV4cCI6MjA3ODE4NTQ1M30.Jfe71yHobeakeQuMJVHEYiHkYJPF4db-RyevJD8Lumk')
+const db = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)
 
 const app = express();
 app.use(bodyParser.json());
