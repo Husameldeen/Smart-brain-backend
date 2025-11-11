@@ -35,11 +35,11 @@ app.get('/', (req, res) => {res.send(data)});
 
 app.post('/api', (req, res) => {handleApi(req, res)});
 
-app.post('/signin', (req, res) => {handleSignin(req, res, db, bcrypt)})
+//app.post('/signin', (req, res) => {handleSignin(req, res, db, bcrypt)})
 
 app.post('/signup', (req, res) => {handleSignup(req, res, db, bcrypt)})
 
-app.get('/profile/:id', (req, res) => {handleProfileGet(req, res, db)})
+//app.get('/profile/:id', (req, res) => {handleProfileGet(req, res, db)})
 
 app.put('/image', (req, res) => {handleImage(req, res, db)})
 

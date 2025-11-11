@@ -1,7 +1,6 @@
 const handleImage = async (req, res, db) => {
     
     const { id } = req.body;
-    //res.json(data)
 
     const { data, error } = await db
     .from('users')
