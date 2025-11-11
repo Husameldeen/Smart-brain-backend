@@ -17,9 +17,9 @@ const handleImage = async (req, res, db) => {
     .eq('id', id)
     .single();
 
-    const newPoints = user.entries + 1;
+    //const newPoints = user.entries + 1;
 
-    res.send(newPoints)
+    res.json(data)
 
     //console.log('id = ', id)
     // db('users').where('id', '=', id)
