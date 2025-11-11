@@ -21,6 +21,14 @@ const handleImage = async (req, res, db) => {
 
     res.json(newPoints)
 
+    const { newEntries, error: updateError } = await supabase
+    .from('users')
+    .update({ entries: newPoints })
+    .eq('id', id)
+    .select();
+
+    res.json(newEntries)
+    
     //console.log('id = ', id)
     // db('users').where('id', '=', id)
     // .increment('entries', 1)
