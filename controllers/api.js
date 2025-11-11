@@ -1,7 +1,6 @@
 
 const handleApi = async (req, res) => {
   const IMAGE_URL = req.body.imageUrl;
-  // const PAT = '4591a2acadc34487ab88bbe51b1f449a'; // Store securely in env variable
   const PAT = process.env.PAT;
   const USER_ID = 'clarifai';
   const APP_ID = 'main';
