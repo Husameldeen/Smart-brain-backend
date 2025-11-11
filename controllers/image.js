@@ -23,32 +23,37 @@
 
 // export default handleImage;
 
-//import supabase from './supabaseClient.js';
-
 const handleImage = async (req, res, db) => {
   const { id } = req.body;
 
-  if (!id) {
-    return res.status(400).json({ error: 'Missing user id' });
-  }
-
   try {
-    // Update user's entries and return the new value
-    const { data, error } = await db
+    // 1. Get current entries
+    const { data: user, error: fetchError } = await db
       .from('users')
-      .update({ entries: db.rpc('increment', { x: 1 }) }) // placeholder for clarity; see note below
+      .select('entries')
+      .eq('id', id)
+      .single();
+
+    if (fetchError || !user) {
+      return res.status(400).json({ error: 'User not found' });
+    }
+
+    const newEntries = (user.entries || 0) + 1;
+
+    // 2. Update entries
+    const { data: updated, error: updateError } = await db
+      .from('users')
+      .update({ entries: newEntries })
       .eq('id', id)
       .select('entries')
       .single();
 
-    if (error || !data) {
-      return res.status(400).json({ error: 'Unable to update entries' });
-    }
+    if (updateError) throw updateError;
 
-    return res.json(data.entries);
+    return res.json(updated.entries);
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Server error' });
+    return res.status(400).json({ error: 'Unable to update entries' });
   }
 };
 
