@@ -43,10 +43,6 @@ app.put("/image", (req, res) => {
   handleImage(req, res, db);
 });
 
-app.get("/reactquizquestion", (req, res) => {
-  handleReactQuiz(req, res);
-});
-
 const PORT = process.env.port;
 
 app.listen(PORT);
