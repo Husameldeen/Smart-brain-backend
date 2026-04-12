@@ -140,7 +140,7 @@ const questions = [
 ];
 
 function handleReactQuiz(req, res) {
-  res.json(questions);
+  return res.json(questions);
 }
 
 export default handleReactQuiz;
