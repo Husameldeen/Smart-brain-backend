@@ -7,6 +7,7 @@ import handleSignin from "./controllers/signin.js";
 import handleProfileGet from "./controllers/profile.js";
 import handleImage from "./controllers/image.js";
 import handleApi from "./controllers/api.js";
+import handleReactQuiz from "./controllers/handleReactQuiz.js";
 import { createClient } from "@supabase/supabase-js";
 
 const db = createClient(
